@@ -2,11 +2,13 @@
 \title{ Computer Workshop Final homework}
 \usepackage{url}
 \usepackage{graphicx}
-%\usepackage{hyperref}
-%\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Final Assignment}
+\lhead{}
+\rhead{CW project}
 
 \author{Hossein Rasipoor \\ 402411458}
 \date{1403/11/05}
@@ -23,4 +25,52 @@ First, I created a repository on my GitHub account. Then, I navigated to the Act
 
 \subsection{GitHub Actions for LaTeX Compilation}
 In this part, I created a file that compiles LaTeX to PDF with some prompts. To compile the LaTeX file, we need to create a tag using the git tag command, which allows the document to be published as a PDF on GitHub.
+\section{Exploration Tasks}
+\subsection{Vim Advanced Features}
+\begin{itemize}
+    \item \textbf{Macros for Automating Repeated Tasks}
+\newline
+Vim allows users to record and replay a series of keystrokes, known as macros, to automate repetitive tasks. for this we use q for record and @ for register them
+    \item \textbf{Search and Replace with Ranges and Patterns}
+\newline
+Vim's :substitute command allows for complex search-and-replace operations using regular expressions and ranges. pattern:
+\newline
+:[range]s/pattern/replacement/[flags]
+
+    \item \textbf{Splits and Tabs for Efficient Window Management}
+    \newline Splits and tabs in Vim help you manage multiple files or sections simultaneously. Use :split for horizontal splits and :vsplit for vertical ones. Navigate between splits with Ctrl-w + h/j/k/l. For tabs, :tabnew [filename] opens a new tab, and gt/gT switches between them.
+\end{itemize}
+
+
+
+\subsection{Memory profiling}
+\subsubsection{Memory Leak}
+memory leak occurs when a program allocates memory but fails to release it, leading to wasted memory and performance issues. This usually happens when references to the memory are lost or it's not properly freed.
+
+\subsubsection{Memory profilers}
+Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile your programs in detail. You can also use Valgrind to build new tools.
+
+\subsection{GNU/Linux Bash Scripting}
+
+\subsubsection{fzf}
+\begin{itemize}
+    \item What is fuzzy searching? Give a short description.
+    \newline Fuzzy searching is a technique used to find matches that are approximately close to a given search term, even if the term is misspelled or incomplete. It allows for slight variations in spelling, typos, or other errors while still returning relevant results. This approach is useful in situations where exact matches are not necessary, such as when dealing with user input errors or partial information.
+    \item Install fzf on your machine and give a description of what the following command does:\\
+        \texttt{ls | fzf}
+        \newline
+        When you run \texttt{ls | fzf}, it lists all files and directories in the current directory and then allows you to interactively search and select one of them using fuzzy matching. As you type, fzf filters and shows the closest matches, making it easier to select files quickly
+\end{itemize}
+
+\subsubsection{Using fzf to find your favorite PDF}
+
+\begin{enumerate}
+    \item \texttt{"fd -e PDF"}
+This command will search for all files with the .PDF extension in the current directory and its subdirectories. The -e option is used to specify the file extension filter
+    \item \texttt{"fd -e PDF | fzf"} we use this command for search from list of pdf's that we have
+\end{enumerate}
+
+\subsubsection{Opening the file using Zathura}
+\texttt{"zathura \$(fd -e PDF | fzf)"} This command will open the PDF you select using Zathura
+
 \end{document}
